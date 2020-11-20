@@ -11,13 +11,6 @@ declare(strict_types=1);
  */
 namespace DoitBoy\RBAC;
 
-class ConfigProvider
+class Resource
 {
-    public function __invoke(): array
-    {
-        return [
-            'dependencies' => [
-            ],
-        ];
-    }
 }

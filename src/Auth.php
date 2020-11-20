@@ -11,13 +11,11 @@ declare(strict_types=1);
  */
 namespace DoitBoy\RBAC;
 
-class ConfigProvider
+class Auth
 {
-    public function __invoke(): array
-    {
-        return [
-            'dependencies' => [
-            ],
-        ];
-    }
+    const SUCCESS = 0;
+
+    const FORBIDDEN = 1;
+
+    const TOKEN_NOT_FOUND = 2;
 }
