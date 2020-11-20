@@ -13,6 +13,7 @@ namespace DoitBoy\RBAC\Contract;
 
 use DoitBoy\RBAC\Auth;
 use DoitBoy\RBAC\RouteResource;
+use Hyperf\Utils\Collection;
 
 interface ClientInterface
 {
@@ -23,7 +24,7 @@ interface ClientInterface
 
     /**
      * 返回 管理员 某项目所有的资源配置.
-     * @return RouteResource[]
+     * @return Collection|RouteResource[]
      */
-    public function resources(int $id, int $project): array;
+    public function resources(int $id, int $project): Collection;
 }

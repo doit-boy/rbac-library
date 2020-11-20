@@ -11,6 +11,12 @@ declare(strict_types=1);
  */
 namespace DoitBoy\RBAC;
 
-class RouteResource
+use Hyperf\Utils\Contracts\Arrayable;
+
+class RouteResource implements Arrayable
 {
+    public function toArray(): array
+    {
+        return [];
+    }
 }
