@@ -12,14 +12,18 @@ declare(strict_types=1);
 namespace DoitBoy\RBAC\Contract;
 
 use DoitBoy\RBAC\Auth;
-use DoitBoy\RBAC\Resource;
+use DoitBoy\RBAC\RouteResource;
 
 interface ClientInterface
 {
+    /**
+     * 判断 管理员 对于某项目的路由是否有权限.
+     */
     public function check(int $id, int $project, string $route): Auth;
 
     /**
-     * @return resource[]
+     * 返回 管理员 某项目所有的资源配置.
+     * @return RouteResource[]
      */
     public function resources(int $id, int $project): array;
 }

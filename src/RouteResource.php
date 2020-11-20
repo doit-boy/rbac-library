@@ -11,6 +11,6 @@ declare(strict_types=1);
  */
 namespace DoitBoy\RBAC;
 
-class Resource
+class RouteResource
 {
 }
