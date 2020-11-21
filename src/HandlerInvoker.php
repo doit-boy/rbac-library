@@ -15,7 +15,6 @@ use DoitBoy\RBAC\Contract\HandlerInvokerInterface;
 use GuzzleHttp\HandlerStack;
 use Hyperf\Guzzle\HandlerStackFactory;
 use Psr\Container\ContainerInterface;
-use function GuzzleHttp\choose_handler;
 
 class HandlerInvoker implements HandlerInvokerInterface
 {
@@ -25,6 +24,6 @@ class HandlerInvoker implements HandlerInvokerInterface
             return $factory->create();
         }
 
-        return choose_handler();
+        return HandlerStack::create();
     }
 }

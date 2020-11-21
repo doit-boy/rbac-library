@@ -17,6 +17,8 @@ use Hyperf\Utils\Collection;
 
 interface ClientInterface
 {
+    const OK = 0;
+
     /**
      * 判断 管理员 对于某项目的路由是否有权限.
      */

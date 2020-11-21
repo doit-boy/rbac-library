@@ -45,7 +45,7 @@ class Auth implements AuthInterface
      */
     protected $message;
 
-    public function __construct(int $id, int $project, string $route, string $method, int $result, string $message = '')
+    public function __construct(int $id, int $project, string $route, string $method, int $result = 0, string $message = '')
     {
         $this->id = $id;
         $this->project = $project;
@@ -83,5 +83,23 @@ class Auth implements AuthInterface
     public function getMessage(): string
     {
         return $this->message;
+    }
+
+    /**
+     * @return $this
+     */
+    public function setResult(int $result)
+    {
+        $this->result = $result;
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function setMessage(string $message)
+    {
+        $this->message = $message;
+        return $this;
     }
 }

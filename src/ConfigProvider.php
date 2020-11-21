@@ -11,12 +11,15 @@ declare(strict_types=1);
  */
 namespace DoitBoy\RBAC;
 
+use DoitBoy\RBAC\Contract\ClientInterface;
+
 class ConfigProvider
 {
     public function __invoke(): array
     {
         return [
             'dependencies' => [
+                ClientInterface::class => ClientFactory::class,
             ],
         ];
     }
