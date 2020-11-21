@@ -1,5 +1,7 @@
-# component-creater
+# RBAC Library
+
+## 安装
 
 ```
-composer create-project hyperf/component-creater
+composer require doit-boy/rbac-library
 ```

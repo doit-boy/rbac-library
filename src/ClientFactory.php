@@ -13,7 +13,7 @@ namespace DoitBoy\RBAC;
 
 use DoitBoy\RBAC\Contract\HandlerInvokerInterface;
 use Hyperf\Contract\ConfigInterface;
-use Hyperf\Contract\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 class ClientFactory
 {

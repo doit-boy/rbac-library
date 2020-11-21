@@ -32,4 +32,9 @@ class Client implements ClientInterface
     {
         return new Collection([]);
     }
+
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
 }
