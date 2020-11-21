@@ -20,7 +20,7 @@ interface ClientInterface
     /**
      * 判断 管理员 对于某项目的路由是否有权限.
      */
-    public function check(int $id, int $project, string $route): Auth;
+    public function check(int $id, int $project, string $route, string $method): Auth;
 
     /**
      * 返回 管理员 某项目所有的资源配置.

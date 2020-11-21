@@ -31,6 +31,11 @@ class Auth implements AuthInterface
     protected $route;
 
     /**
+     * @var string
+     */
+    protected $method;
+
+    /**
      * @var int
      */
     protected $result;
@@ -40,11 +45,12 @@ class Auth implements AuthInterface
      */
     protected $message;
 
-    public function __construct(int $id, int $project, string $route, int $result, string $message = '')
+    public function __construct(int $id, int $project, string $route, string $method, int $result, string $message = '')
     {
         $this->id = $id;
         $this->project = $project;
         $this->route = $route;
+        $this->method = $method;
         $this->result = $result;
         $this->message = $message;
     }

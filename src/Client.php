@@ -24,10 +24,10 @@ class Client implements ClientInterface
         $this->options = $options;
     }
 
-    public function check(int $id, int $project, string $route): Auth
+    public function check(int $id, int $project, string $route, string $method): Auth
     {
         // $response = $this->client()->post()
-        return new Auth($id, $project, $route, 0);
+        return new Auth($id, $project, $route, $method, 0);
     }
 
     public function resources(int $id, int $project): Collection
