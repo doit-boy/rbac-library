@@ -13,13 +13,18 @@ namespace DoitBoy\RBAC;
 
 use DoitBoy\RBAC\Contract\HandlerInvokerInterface;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Utils;
+use Hyperf\Guzzle\HandlerStackFactory;
 use Psr\Container\ContainerInterface;
+use function GuzzleHttp\choose_handler;
 
 class HandlerInvoker implements HandlerInvokerInterface
 {
     public function __invoke(ContainerInterface $container): HandlerStack
     {
-        return Utils::chooseHandler();
+        if ($container->has(HandlerStackFactory::class) && $factory = $container->get(HandlerStackFactory::class)) {
+            return $factory->create();
+        }
+
+        return choose_handler();
     }
 }

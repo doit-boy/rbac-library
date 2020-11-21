@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace DoitBoy\RBAC;
 
+use DoitBoy\RBAC\Contract\HandlerInvokerInterface;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\ContainerInterface;
 
@@ -20,7 +21,14 @@ class ClientFactory
     {
         $options = $container->get(ConfigInterface::class)->get('rbac.options', [
             'base_uri' => 'http://rbac_api:8000',
+            'handler' => new HandlerInvoker(),
             'timeout' => 2,
         ]);
+
+        if (isset($options['handler']) && $options['handler'] instanceof HandlerInvokerInterface) {
+            $options['handler'] = $options['handler']->__invoke($container);
+        }
+
+        return new Client($options);
     }
 }
