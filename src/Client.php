@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace DoitBoy\RBAC;
 
 use DoitBoy\RBAC\Contract\ClientInterface;
+use GuzzleHttp;
 use Hyperf\Utils\Collection;
 
 class Client implements ClientInterface
@@ -25,6 +26,7 @@ class Client implements ClientInterface
 
     public function check(int $id, int $project, string $route): Auth
     {
+        // $response = $this->client()->post()
         return new Auth($id, $project, $route, 0);
     }
 
@@ -36,5 +38,10 @@ class Client implements ClientInterface
     public function getOptions(): array
     {
         return $this->options;
+    }
+
+    protected function client()
+    {
+        return new GuzzleHttp\Client($this->options);
     }
 }

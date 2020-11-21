@@ -11,16 +11,10 @@ declare(strict_types=1);
  */
 namespace DoitBoy\RBAC;
 
-class Auth
+use DoitBoy\RBAC\Contract\AuthInterface;
+
+class Auth implements AuthInterface
 {
-    const SUCCESS = 0;
-
-    const FORBIDDEN = 1;
-
-    const TOKEN_NOT_FOUND = 2;
-
-    const FAILED = 3;
-
     /**
      * @var int
      */
