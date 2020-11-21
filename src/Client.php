@@ -60,6 +60,11 @@ class Client implements ClientInterface
         return new Collection([]);
     }
 
+    public function register(int $id, string $name): bool
+    {
+        return true;
+    }
+
     public function getOptions(): array
     {
         return $this->options;

@@ -29,4 +29,9 @@ interface ClientInterface
      * @return Collection|RouteResource[]
      */
     public function resources(int $id, int $project): Collection;
+
+    /**
+     * 动态注册管理员.
+     */
+    public function register(int $id, string $name): bool;
 }
