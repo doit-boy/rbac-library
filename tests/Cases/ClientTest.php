@@ -51,7 +51,7 @@ class ClientTest extends AbstractTestCase
             'handler' => (new ClientInvokerStub(['code' => 0, 'data' => false]))($container),
         ]);
 
-        $auth = $client->check(1, 1, '/', 'GET');
+        $auth = $client->check(2, 1, '/test', 'GET');
         $this->assertSame(Auth::FORBIDDEN, $auth->getResult());
         $this->assertFalse($auth->isSuccess());
     }
@@ -60,14 +60,14 @@ class ClientTest extends AbstractTestCase
     {
         $container = Mockery::mock(ContainerInterface::class);
         $client = new Client([
-            'base_uri' => 'http://127.0.0.1:8000',
+            'base_uri' => 'http://127.0.0.1:8001',
             'timeout' => 2,
-            'handler' => (new ClientInvokerStub(['code' => 500, 'message' => 'Server Error']))($container),
+            'handler' => (new ClientInvokerStub(['code' => 500, 'message' => 'cURL error 52: Empty reply from server (see https://curl.haxx.se/libcurl/c/libcurl-errors.html)']))($container),
         ]);
 
-        $auth = $client->check(1, 1, '/', 'GET');
+        $auth = $client->check(2, 1, '/test', 'GET');
         $this->assertSame(Auth::FAILED, $auth->getResult());
         $this->assertFalse($auth->isSuccess());
-        $this->assertSame('Server Error', $auth->getMessage());
+        $this->assertSame('cURL error 52: Empty reply from server (see https://curl.haxx.se/libcurl/c/libcurl-errors.html)', $auth->getMessage());
     }
 }

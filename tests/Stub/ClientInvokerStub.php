@@ -39,11 +39,11 @@ class ClientInvokerStub implements HandlerInvokerInterface
 
     public function __invoke(ContainerInterface $container): HandlerStack
     {
-        $handler = null;
         $handler = function (RequestInterface $request, array $options) {
             $response = new Psr7\Response(200, [], $this->body);
             return new FulfilledPromise($response);
         };
+        // $handler = null;
         return HandlerStack::create($handler);
     }
 }
