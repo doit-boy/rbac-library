@@ -15,9 +15,6 @@ jobs:
         os: [ubuntu-latest]
         php-version: ['7.2', '7.3', '7.4']
         engine: ['none', 'swoole', 'swow']
-        exclude:
-          - php-version: '7.2'
-            engine: 'swow'
       max-parallel: 5
     steps:
       - name: Checkout
